@@ -14,5 +14,6 @@ public class Main {
         hashTable.get("Grapes");
         hashTable.get("Apples");
 
+        System.out.println(hashTable.keys());
     }
 }
