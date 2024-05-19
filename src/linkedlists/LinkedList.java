@@ -29,6 +29,7 @@ public class LinkedList {
     }
 
     public void insert(int position, int value) {
+
         Node newNode = new Node(value);
         if (position == 0) {
             newNode.next = head;
@@ -36,10 +37,12 @@ public class LinkedList {
             return;
         }
 
-        // Adding the existing values to a temp location until the defined position is met
+        /**
+         * Looping through the existing values until the defined position is met
+         * Starting with 1 since 0th position is the head
+         * **/
         Node temp = head;
         for (int i = 1; i < position && temp != null; i++) {
-            System.out.println(i);
             temp = temp.next;
         }
         if (temp == null) {
@@ -47,6 +50,38 @@ public class LinkedList {
         }
         newNode.next = temp.next;
         temp.next = newNode;
+    }
+
+    public boolean remove(int index) {
+        if (head == null) {
+            return false; // List is empty
+        }
+
+        // Search for the node to remove
+        Node current = head, previous = null;
+
+        // Handling the removal of the 0th element since there's no previous element
+        if (index == 0) {
+            head = current.next; // Changed head
+            return true;
+        }
+
+
+        int counter = 0;
+        while (current != null) {
+            if (counter == index) {
+                // Since the currNode is the required position Unlink currNode from linked list
+                previous.next = current.next;
+                break;
+            } else {
+                // If currNode does not hold the value, continue to next node
+                previous = current;
+                current = current.next;
+                counter++;
+            }
+        }
+        length--;
+        return true;
     }
 
     public void prepend(int value) {
@@ -67,6 +102,6 @@ public class LinkedList {
     }
 
     public int getLength() {
-        return length - 1; // exclude null pointer
+        return length; // exclude null pointer
     }
 }

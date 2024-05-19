@@ -9,9 +9,10 @@ public class Main {
          linkedList.append(12);
          linkedList.prepend(89);
          linkedList.insert(2, 900);
+         linkedList.remove(0); // 89->5->900->10->12->null
 
          linkedList.display();
-//
-//        System.out.println(linkedList.getLength());
+
+        System.out.println(linkedList.getLength());
     }
 }
