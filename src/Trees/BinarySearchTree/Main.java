@@ -12,6 +12,8 @@ public class Main {
 
         bst.totalElements();
 
-        bst.lookup(5);
+        System.out.println(bst.lookup(5));
+
+        bst.inorderTraversal(bst.root);
     }
 }

@@ -45,11 +45,13 @@ public class BinarySearchTree {
         System.out.println("Elements found:" + elements);
     }
 
-    public void lookup(int value) {
+    /**
+     * Look up using divide and conquer
+     * **/
+    public boolean lookup(int value) {
 
         if (root.value == value) {
-            System.out.println("Found value: " + value);
-            return;
+            return true;
         }
 
         Node current = root;
@@ -58,13 +60,23 @@ public class BinarySearchTree {
             current = value < current.value? current.left: current.right;
 
             if (current == null) {
-                return;
+                return false;
             }
 
             if(current.value == value) {
-                System.out.println("Found value:" + value);
-                return;
+                return true;
             }
+        }
+    }
+
+    /**
+     * traverse through tree using recursive
+     * **/
+    public void inorderTraversal(Node root) {
+        if (root != null) {
+            inorderTraversal(root.left);
+            System.out.print(root.value + " ");
+            inorderTraversal(root.right);
         }
     }
 }
