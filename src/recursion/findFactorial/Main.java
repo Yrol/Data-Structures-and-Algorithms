@@ -2,6 +2,10 @@ package recursion.findFactorial;
 
 public class Main {
 
+    /**
+     * Find factorial using loop
+     * Time complexity: O(n)
+     * **/
     public static int factorialUsingLoop(int number) {
 
         int factorial = number * --number;
@@ -11,13 +15,17 @@ public class Main {
         return factorial;
     }
 
+    /**
+     * Find factorial using recursion
+     * Time complexity: O(n)
+     * **/
     public static int factorialUsingRecursion(int number) {
 
         if (number == 1){
-            return 1;
+            return number;
         }
         int recursiveResult = factorialUsingRecursion(number - 1); // will be executed when: number not equal 1
-        return recursiveResult * number; // will be executed when: number == 1 / when return 1
+        return recursiveResult * number; // will be executed when return number as 1. Then the recursiveResult will be multiplied by 1.
     }
 
     public static void main(String[] args) {
