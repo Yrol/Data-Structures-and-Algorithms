@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * Implementing the selection sort using For and While loop
- * Time complexity O(n^2) - due to nested loops
+ * Time complexity O(n^2) - due to nested loops are being used
  * **/
 public class Main {
 
